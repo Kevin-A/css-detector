@@ -1,0 +1,24 @@
+{{> head}}
+
+	<div class="wrapper wrapper-content">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12">
+					<h1> {{website.hostname}} </h1>
+					<h3> {{rule}} </h3>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<ul>
+						{{#each urls}}
+							<li><a href="{{this}}">{{this}}</a></li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{{> footer}}

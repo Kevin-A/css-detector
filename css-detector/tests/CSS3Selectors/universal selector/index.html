@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Universal Selector</title>
+	<link rel="stylesheet" type="text/css" href="used.css">
+	<link rel="stylesheet" type="text/css" href="unused.css">
+</head>
+<body>
+	<p> The universal selector * sets all text color to bold. </p>
+
+	<p class="warning"> All elements containing the class "warning" have an orange background. </p>
+	<div class="warning"> This is due to the "*.warning" selector. In cases like this, the "*" can be omitted. </div>
+	<p class="danger"> For example, this paragraph is of the class "danger". It is being colored red by ".danger", without the universal selector at the front. </p>
+
+	<div>
+		<p> Now, let's apply some nesting. All the &lt;span&gt; elements within this div will be <span> underlined </span>. It does not matter how deep it is, or in which element it is contained. This is due to the "div * span" selector. This means it selects all &lt;span&gt; that are a descendant of a &lt;div&gt;, with at least 1 element in between </p>
+
+		<ul>
+			<li> This is a <span>list</span> </li>
+			<li> The "list" above was wrapped in &lt;span&gt; tags. </li>
+			<li> <span>So is this list item</span></li>
+			<li> The path to the &lt;em&gt;s above is: &lt;div&gt; &lt;ul&gt; &lt;li&gt; &lt;em&gt;
+		</ul>
+
+		<p> The reason we didn't do "div span" is that we do not want direct children of this div be underlined as well. </p>
+
+		For example, "<span>this</span>" is a direct child of &lt;div&gt;, wrapped in &lt;span&gt; tags, but it is not underlined!
+	</div>
+
+	<p>Universal selectors are usually a part of some other selector, like: <code>[name="jan"]</code>, which is equal to <code>*[name="jan"]</code>. In <em>unused.css</em> are certain style sets with non-existant selectors. <input type="text" placeholder="name"/> does not exist, placeholder is different.</p>
+</body>
+</html>

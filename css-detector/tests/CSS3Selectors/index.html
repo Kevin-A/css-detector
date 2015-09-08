@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic website containing all CSS3 selectors</title>
+	<link rel="stylesheet" type="text/css" href="used.css">
+</head>
+<body>
+
+	<p> The universal selector has set the font-weight of all text to bold. </p>
+
+	<h1> The type selector sets this to orange </h1>
+
+	<div>
+
+		<span underlined> The underlined attribute selector underlines this</span> <br/>
+		<hr>
+		<span color="purple"> The color="purple" attribute selector makes this purple</span> <br/>
+		<hr>
+		<span name="pieter jan alice"> This span contains an attribute 'name' with lists several names, separated by whitespace. If one of the names is "jan" the text turns red.</span> <br/>
+		<hr>
+		<span name="janice"> If the name attribute of this span starts with "jan" this text is italic</span> <br/>
+		<hr>
+		<span name="michael jackson"> If the name attribute of this span ends with "jackson" it will have a border. </span><br/>
+		<hr>
+		<span word="luminescent"> If the word attribute of this span contains at least one instance of the substring "mine" it will be underlined. </span> <br/>
+		<hr>
+		<span fruit="apple-pineapple-banana">Will turn green if the first element of the hypen-separated list value of the fruit attribute is "apple"</span> <br/>
+	</div>
+<hr>
+
+	<h1> Now come the structural pseudo-classes (this is orange btw)</h1>
+
+	<div>
+		<span>The :root pseudoclass gives a lightblue background to the root of the DOM (&lt;html&gt; in this case)</span>
+
+		<hr>
+
+		<div id="nthchild">
+			Every odd number will be red due to :nth-child(odd).
+			<span> First </span>
+			<span> Second </span>
+			<span> Third</span>
+			<span> Fourth</span>
+		</div>
+
+		<hr>
+
+		<div id="nthlastchild">
+			Every odd number will be red, counting from the back, due to :nth-last-child(odd).
+			<span> First </span>
+			<span> Second </span>
+			<span> Third</span>
+			<span> Fourth</span>
+		</div>
+
+		<hr>
+
+		<div id="nthoftype">
+			Every &lt;span&gt; that is the second element of its parent will have red letters. <br/>
+			<span> This is the first one. </span> <span> This is the second </span>
+			<p> This is a paragraph, due to the descendant nature of the selector the second span in here will be red as well. <span> The first span</span>, <span> the second span</span>, <span> the third span</span>. </p>
+		</div>
+
+		<hr>
+
+		<div id="nthlastoftype">
+			The same as the one above, but this time it will be the second last item. <br/>
+			<span> This is the first one. </span> <span> This is the second </span> <span> This is the third </span> <span> This is the fourth </span>
+			<p> This is a paragraph, due to the descendant nature of the selector the second span in here will be red as well. <span> The first span</span>, <span> the second span</span>, <span> the third span</span>, <span> the fourth span</span>. </p>
+		</div>
+
+		<hr>
+
+		<div id="firstchild">
+			The first child of the list below will be red due to the :first-child pseudo-class.
+			<ul>
+				<li>This is the first one.</li>
+				<li>This is the second</li>
+				<li>This is the third</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div id="lastchild">
+			The last child of the list below will be red due to the :last-child pseudo-class.
+			<ul>
+				<li>This is the first one.</li>
+				<li>This is the second</li>
+				<li>This is the third</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div id="firstoftype">
+			The first span below will be red due to the :first-of-type pseudo-class.<br/>
+			<span> This is the first one. </span> <span> This is the second </span> <span> This is the third </span>
+		</div>
+
+		<hr>
+
+		<div id="lastoftype">
+			The last span below will be red due to the :last-of-type pseudo-class.<br/>
+			<span> This is the first one. </span> <span> This is the second </span> <span> This is the third </span>
+		</div>
+
+		<hr>
+
+		<div id="onlychild">
+			The list item that is the only item in the list will turn red due to the :only-child pseudo-class.
+			<ul>
+				<li>This is the first one.</li>
+				<li>This is the second</li>
+				<li>This is the third</li>
+			</ul>
+			<ul>
+				<li>This is the only child in the second list</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div id="onlyoftype">
+			The list item that is the only span in the parent will turn red due to the :only-of-type pseudo-class.
+			<p> <span>first span</span>, <span>second span</span></p>
+			<p> <span> This is the only span in the second paragraph</span></p>
+		</div>
+
+		<hr>
+
+		<div id="empty">
+			The red block is actually an empty div element, which is styled by the :empty pseudo-class. <div></div>
+		</div>
+	</div>
+
+	<hr>
+
+	<h1> Pseudo-classes </h1>
+
+	<div>
+		<input type="text" placeholder="Border turns red on focus" /><br/>
+		<a href="#targetelement">Turns fuchsia on hover, green on mousedown. If clicked on turns the text below to lightseagreen</a><br/>
+		<p id="targetelement"> Turns lightseagreen once the link above is clicked, whichs adds #targetelement to the url. That identifier points to this element. The :target pseudo-class then colors this paragraph. </p>
+	</div>
+
+	<hr>
+
+	<h1> :lang() pseudo-class </h1>
+
+	<div>
+		<p>The language of the paragraph below is set to french. The selector p:lang(fr) sets the background color to DarkOrange.</p>
+		<p lang="fr"> un omelette du fromage.</p>
+	</div>
+
+	<hr>
+
+	<h1> UI element states pseudo-classes </h1>
+
+	<div>
+		<input type="text" placeholder="Green border because it is enabled" /> <br/>
+		<input type="text" placeholder="Black border because it is disabled" disabled/> <br/>
+		<input type="checkbox" name="color" value="gr"> <span>Turns green when it is checked</span><br/>
+	</div>
+
+	<hr>
+
+	<h1> ::first-line pseudo-element </h1>
+
+	<div id="firstline">
+		<p> The first line of this awesome text will be red. The rest is just boring black. If your screen is very wide this red text will be a large portion, so laaaaaaaaaaaaaaaarrrrrrrrgggggggggeeeeeeeeeeeeeeee. This should do. If not: My milkshake brings all the boys to the yard! It's better than yours. Damn right, it's better than yours. I could teach you, but I'd have to charge.</p>
+	</div>
+
+	<hr>
+
+	<h1> ::first-letter pseudo-element </h1>
+
+	<div id="firstletter">
+		<p> First letter of this text is HUGE, thanks ::first-letter.</p>
+	</div>
+
+	<hr>
+
+	<h1> ::before & ::after pseudo-elements </h1>
+
+	<div id="beforeafter">
+		<p> The ::before and ::after elements add text before and after this paragraph. </p>
+	</div>
+
+	<hr>
+
+	<h1> Negation pseudo-class </h1>
+
+	<div id="negation">
+		<p>The :not selector is set so that all elements that are not a span have a red background. Including this paragraph.</p>
+		<span>This is a span and is not red.</span>
+	</div>
+
+	<hr>
+
+	<h1> Descendant combinator </h1>
+
+	<div id="descendant">
+		<span>All spans that are a descendant of a &lt;div&gt; are colored red. This entire piece is a span, but is not a descendant of a div.</span> <br/>
+		<div>
+			<span>This is a span and a descendant of a div</span>
+			<p> This is a paragraph in the same div. <span> And this is a span inside that paragraph. It is red, because this span is still a descendant of a div.</span></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<h1> Child combinator </h1>
+
+	<div id="child">
+		<span>All spans that are a DIRECT child of a &lt;div&gt; are colored red. This entire piece is a span, but is not a child of a div.</span> <br/>
+		<div>
+			<span>This is a span and a direct child of a div</span>
+			<p> This is a paragraph in the same div. <span> And this is a span inside that paragraph. It is not red, because this span is not a direct child of a div.</span></p>
+		</div>
+	</div>
+
+	<hr>
+
+	<h1> Adjacent sibling combinator </h1>
+
+	<div id="adjacent">
+		<span>All spans that are directly follow another span are colored red. This is the first span.</span>
+		<span>This is the second span</span>
+	</div>
+
+	<hr>
+
+	<h1> General sibling combinator </h1>
+
+	<div id="general">
+		The ~ combinator separates two selectors and matches the second element only if it is preceded by the first, and both share a common parent.<br/>
+
+		<span>This is not red.</span>
+		<p>Here is a paragraph.</p>
+		<code>Here is some code.</code>
+		<span>And here is a span.</span>
+	</div>
+
+	<div id="matches">
+		<section>
+		    <h1>Section: Hello World!</h1>
+		    <p>But I must explain to you how...</p>
+		</section>
+
+		<article>
+		    <h1>Article: Hello World!</h1>
+		    <p>But I must explain to you how...</p>
+		</article>
+
+		<header>
+		    <h1>Header: Hello World!</h1>
+		    <p>But I must explain to you how...</p>
+		</header>
+
+		<aside>
+		    <h1>Aside: Hello World!</h1>
+		    <p>But I must explain to you how...</p>
+		</aside>
+	</div>
+
+	<div id="has">
+		<header>
+			<h1> has </h1>
+		</header>
+	</div>
+
+	<div id="directionality">
+		<div dir="rtl">rtl</div>
+		<div dir="ltr">ltr</div>
+		<div dir="auto">עִבְרִית</div>
+	</div>
+
+	<div id="any-link">
+		<a href="#"> link </a>
+	</div>
+	<div id="scope">
+		<header>
+			<div>
+				<style scoped>
+					:scope { background-color: blue; }
+				</style>
+				<p>Inside the scope</p>
+			</div>
+			<div>
+			<p>Outside of the scope</p>
+			</div>
+		</header>
+	</div>
+
+	<div id="placeholder">
+		<input type="text" placeholder="Placeholder text" />
+	</div>
+
+	<div id="mutability">
+	</div>
+
+	<div id="default-option">
+		<select>
+		    <option selected="selected">Default</option>
+		    <option>Test</option>
+		    <option>Test 2</option>
+		    <option>Test 3</option>
+		</select>
+	</div>
+
+	<div id="range">
+		<input id="value1" name="value1" type="number" placeholder="1 to 10" min="1" max="10" value="12">
+		<label for="value1">Your value is </label>
+	</div>
+
+	<div id="validity">
+		<form>
+			<label>Enter a URL:</label>
+			<input type="url" />
+			<br />
+			<br />
+			<label>Enter an email address:</label>
+			<input type="email" required/>
+		</form>
+	</div>
+
+	<div id="grid">
+		<table>
+		    <col />
+		    <col class="highlight" />
+		    <col />
+		    <tr>
+		        <td>A</td>
+		        <td>B</td>
+		        <td>C</td>
+		    </tr>
+		    <tr>
+		        <td>C</td>
+		        <td>D</td>
+		        <td>E</td>
+		    </tr>
+		    <tr>
+		        <td>F</td>
+		        <td>G</td>
+		        <td>H</td>
+		    </tr>
+		    <tr>
+		        <td>I</td>
+		        <td>J</td>
+		        <td>K</td>
+		    </tr>
+		    <tr>
+		        <td>L</td>
+		        <td>M</td>
+		        <td>N</td>
+		    </tr>
+		    <tr>
+		        <td>O</td>
+		        <td>P</td>
+		        <td>Q</td>
+		    </tr>
+		</table>
+	</div>
+
+	<div id="selection">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis eros tortor. Etiam a porta urna. Aenean fermentum dui non lorem rutrum semper. Curabitur lacinia mattis commodo. Quisque bibendum diam eu metus suscipit finibus. Fusce in aliquam turpis. Cras vulputate nisi dapibus felis sollicitudin imperdiet. Suspendisse porttitor scelerisque ex sit amet hendrerit. Nunc laoreet ligula a lorem facilisis, in finibus metus luctus. Sed sit amet fringilla ipsum, nec hendrerit libero. Fusce feugiat nisl et viverra fringilla.
+	</div>
+</body>
+</html>

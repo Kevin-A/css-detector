@@ -1,0 +1,9 @@
+@import 'importExternal.css';
+
+#second::after,
+#third::after,
+#fourth::after,
+#fifth::after,
+#sixth::after {
+	content: " (external stylesheet)";
+}

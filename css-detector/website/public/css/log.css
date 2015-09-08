@@ -1,0 +1,14 @@
+#messages {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	height: 300px;
+	overflow-y: scroll;
+}
+#messages li {
+	padding: 5px 10px;
+	word-wrap: break-word;
+}
+#messages li:nth-child(odd) {
+	background: #eee;
+}

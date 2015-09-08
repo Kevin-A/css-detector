@@ -1,0 +1,7 @@
+input[placeholder="jan"] {
+	border: 2px solid red;
+}
+
+*.obsolete {
+	color: gray;
+}

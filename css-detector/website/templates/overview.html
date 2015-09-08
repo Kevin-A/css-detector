@@ -1,0 +1,176 @@
+{{> head}}
+
+	<div class="wrapper wrapper-content">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12">
+					<h1> {{website}} </h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Stylesheets</h5>
+						</div>
+						<div class="ibox-content">
+							<h1 class="no-margins">{{sheets.length}}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Pages visited</h5>
+						</div>
+						<div class="ibox-content">
+							<h1 class="no-margins">{{urls.length}}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Style rules</h5>
+						</div>
+						<div class="ibox-content">
+							<h1 class="no-margins">{{total}}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Used rules</h5>
+						</div>
+						<div class="ibox-content">
+							<h1 class="no-margins">{{used}}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Obsolete rules</h5>
+						</div>
+						<div class="ibox-content">
+							<h1 class="no-margins">{{obsolete}}</h1>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Usage</h5>
+						</div>
+						<div class="ibox-content">
+							<h1 class="no-margins">{{percentage}}%</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Internal stylesheets</h5>
+						</div>
+						<div class="ibox-content">
+							{{{listStylesheets sheets websiteId 'internal'}}}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>External stylesheets</h5>
+						</div>
+						<div class="ibox-content">
+							{{{listStylesheets sheets websiteId 'external'}}}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5> Overview of style rules </h5>
+						</div>
+						<div class="ibox-content">
+							<div class="row">
+								<div class="col-sm-9">
+									Click on a row to visit a detailed view of the rule
+								</div>
+								<div class="col-sm-3">
+									<div class="input-group">
+										<input type="text" placeholder="Search" class="input-sm form-control">
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-sm btn-primary"> Go!</button>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Selector text </th>
+											<th>Usages </th>
+											<th>Used </th>
+										</tr>
+									</thead>
+									<tbody>
+										{{#each rules}}
+											<tr>
+												<td>
+													<a href="/{{../websiteId}}/{{@key}}">{{@key}}</a>
+												</td>
+												<td>
+													{{this.length}}
+												</td>
+												<td>
+													{{#if this}}
+														<i class="fa fa-check text-navy"></i>
+													{{else}}
+														<i class="fa fa-close text-danger"></i>
+													{{/if}}
+												</td>
+											</tr>
+										{{/each}}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" >
+		<div class="col-md-12">
+			<h5> Visited pages </h5>
+
+			<button id="toggleUrls"> Show URLs </button><br/>
+
+			<div id="urls" style="display: none">
+				<ul>
+					{{#each urls}}<li>{{this.url}}</li>{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+	{{> scripts}}
+
+
+	<script>
+		$("#toggleUrls").click(function () {
+			$("#urls").toggle("fast");
+		});
+	</script>
+{{> footer}}

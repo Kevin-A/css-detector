@@ -1,0 +1,148 @@
+{{> head}}
+	<div class="wrapper wrapper-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1> Crawl status of {{url}} </h1>
+					<a role="button" class="btn btn-primary" style="display:none;" id="continuebutton" href="/{{url}}"> Continue to results </a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<h2> Stats </h2>
+					Pages crawled: <span id="pagesCrawled">0</span><br/>
+					Pages pending: <span id="pagesPending">0</span><br/>
+					Page limit: <span id="pageLimit">0</span><br/>
+				</div>
+				<div class="col-md-4">
+					<h2> Log </h2>
+					<ul id="messages">
+						{{#each log}}<li>{{this}}</li>{{/each}}
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<h2> Detected forms </h2>
+
+					<div id="forms">
+					{{#unless forms}} <p> There are currently no forms to submit </p> {{/unless}}
+					{{{printForms forms}}}
+					</div>
+				</div>
+				<!-- <div class="col-md-9">
+					<div id="mynetwork"></div>
+				</div> -->
+ 			</div>
+		</div>
+	</div>
+
+	{{> scripts}}
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/3.11.0/vis.min.js"></script>
+	<script>
+
+		// create an array with nodes
+		// var nodes = new vis.DataSet();
+
+		// // create an array with edges
+		// var edges = new vis.DataSet();
+
+		// // create a network
+		// var container = document.getElementById('mynetwork');
+		// var data = {
+		// 	nodes: nodes,
+		// 	edges: edges,
+		// };
+		// var options = {
+		// 	width: '100%',
+		// 	height: '800px',
+		// 	nodes: {
+		// 		shape: 'box'
+		// 	},
+		// 	navigation: true,
+		// 	stabilize: false,
+		// 	physics: {
+		// 		barnesHut: {
+		// 			gravitationalConstant: -80000,
+		// 			springConstant: 0.001,
+		// 			springLength: 200
+		// 		}
+		// 	},
+		// 	hideEdgesOnDrag: true
+		// };
+		// var network = new vis.Network(container, data, options);
+
+
+		// function addNode (url) {
+		// 	try {
+		// 		nodes.add({
+		// 			id: url,
+		// 			label: url
+		// 		});
+		// 	}
+		// 	catch (err) {
+		// 		// Empty, oh no. Probably a duplicate id
+		// 	}
+		// }
+		// function addEdge(from, to) {
+		// 	edges.add({ from:from, to:to });
+		// }
+
+		var socket = io();
+
+		socket.emit('page', {{url}});
+
+		socket.on('status', function (data) {
+			$('span#pagesCrawled').text(data.pagesCrawled);
+			$('span#pagesPending').text(data.pagesPending);
+			$('span#pageLimit').text(data.pageLimit);
+		})
+
+		socket.on('log', function (data) {
+			var item = $('<li>').text(data.message);
+			if (data.tag === 'error') {
+				item.style.background = 'red';
+			}
+
+			item.appendTo($('#messages'));
+			logScroll();
+
+			if (data.message === 'Results stored.') {
+				$('#continuebutton').show();
+			}
+		});
+
+		socket.on('form', function (data) {
+			createForm(data.url, data.selector, data.html);
+		});
+
+		function createForm(url, selector, innerHTML) {
+			var form = $('<form method="POST" action="' + url + '">');
+			form.append('<input type="hidden" value="' + selector + '" name="selector">');
+
+			// $('<img>').attr('src', data.src).appendTo('#forms');
+			form.append(innerHTML);
+
+			$('#forms').append('<h3>' + selector + '</h3>');
+			$('#forms').append(form);
+			$('#forms').append('<hr>');
+		}
+
+		// socket.on('link', function (data) {
+		// 	addNode(data.from);
+		// 	addNode(data.to);
+		// 	addEdge(data.from, data.to);
+		// });
+
+		function logScroll() {
+			var height = $("#messages").get(0).scrollHeight;
+			$("#messages").animate({
+				scrollTop: height
+			}, 500);
+		}
+
+		$(document).ready(function () {
+			logScroll();
+		});
+
+	</script>
+{{> footer}}

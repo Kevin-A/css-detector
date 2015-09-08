@@ -1,0 +1,5 @@
+#fourth::after,
+#fifth::after,
+#sixth::after {
+	content: " (imported by the internal stylesheet)";
+}

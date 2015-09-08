@@ -1,0 +1,31 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Adegeest",
+  "license": "ISC",
+  "dependencies": {
+    "URIjs": "^1.15.1",
+    "crypto": "0.0.3",
+    "cssom": "^0.3.0",
+    "minimist": "^1.1.1",
+    "postcss": "^4.1.16",
+    "request": "^2.58.0",
+    "sha1": "^1.1.0",
+    "underscore": "^1.8.3",
+    "url-parse": "^1.0.1",
+    "validator": "^3.39.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-changed": "^1.2.1",
+    "gulp-jshint": "^1.10.0",
+    "gulp-watch": "^4.2.4",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.0.1"
+  }
+}

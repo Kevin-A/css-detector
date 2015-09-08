@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Stylesheet priority order</title>
+
+		<style>
+			@import 'importInternal.css';
+
+			div {
+				background-color: #CCC;
+			}
+
+			#first::after,
+			#second::after,
+			#third::after,
+			#fourth::after,
+			#fifth::after,
+			#sixth::after {
+				content: " (internal stylesheet)";
+			}
+		</style>
+
+		<link rel="stylesheet" type="text/css" href="layout.css"/>
+
+		<style>
+			@import 'importInternal2.css';
+
+			#sixth::after {
+				content: "internal stylesheet, after external and importInternal2";
+			}
+		</style>
+	</head>
+	<body>
+		<div id="first"> This one is styled by:
+			<ol>
+				<li> internal stylesheet in the &lt;head&gt; tags. </li>
+			</ol>
+		</div>
+
+		<div id="second"> This one is styled by:
+			<ol>
+				<li>the internal stylesheet</li>
+				<li>the external stylesheet</li>
+			</ol>
+		</div>
+
+		<div id="third"> This one is styled by:
+			<ol>
+				<li>internal stylesheet</li>
+				<li>external stylesheet</li>
+				<li>the stylesheet imported by the external stylesheet.</li>
+			</ol>
+		</div>
+
+		<div id="fourth"> This one is styled by:
+			<ol>
+				<li>internal stylesheet</li>
+				<li>external stylesheet</li>
+				<li>the stylesheet imported by the external stylesheet</li>
+				<li>the stylesheet imported by the internal stylesheet</li>
+			</ol>
+		</div>
+
+		<div id="fifth"> This one is styled by:
+			<ol>
+				<li>internal stylesheet</li>
+				<li>external stylesheet</li>
+				<li>the stylesheet imported by the external stylesheet</li>
+				<li>the stylesheet imported by the internal stylesheet</li>
+				<li>the stylesheet imported by the internal stylesheet after the link to the external stylesheet</li>
+			</ol>
+		</div>
+
+		<div id="sixth"> This one is styled by:
+			<ol>
+				<li>internal stylesheet</li>
+				<li>external stylesheet</li>
+				<li>the stylesheet imported by the external stylesheet</li>
+				<li>the stylesheet imported by the internal stylesheet</li>
+				<li>the stylesheet imported by the internal stylesheet after the link to the external stylesheet</li>
+				<li>internal stylesheet after the link to the external stylesheet, and after the import to importInternal2.css</li>
+			</ol>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OnClick DOM tests</title>
+</head>
+<body>
+
+<div id="links">
+	<a href="javascript:myFunction(2);">State 1</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+	function myFunction(a) {
+		switch (a) {
+			case 1: $("#links").html('<a href="javascript:myFunction(2);">State 1</a>'); break;
+			case 2: $("#links").html('<a href="javascript:myFunction(3);">State 2</a>'); break;
+			case 3: $("#links").html('<a href="javascript:myFunction(4);">State 3</a>'); break;
+			case 4: $("#links").html('<a href="javascript:myFunction(1);">State 4</a>'); break;
+		}
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+{{> head}}
+
+	<div class="wrapper wrapper-content">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12">
+					<h1> Test case: '{{test.name}}' </h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Status</h5>
+						</div>
+						<div class="ibox-content">
+							{{#if test.success}}
+								<h1 class="no-margins text-navy">Success</h1>
+							{{else}}
+								<h1 class="no-margins text-danger">Fail</h1>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Correctly used</h5>
+						</div>
+						<div class="ibox-content">
+							{{#if test.used}}
+							<h1 class="no-margins">{{test.used.percentageUsed}}%</h1>
+							{{else}}
+							<h1 class="no-margins">n/a</h1>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>Correctly unused</h5>
+						</div>
+						<div class="ibox-content">
+							{{#if test.unused}}
+								<h1 class="no-margins">{{test.unused.percentageUnused}}%</h1>
+							{{else}}
+							<h1 class="no-margins">n/a</h1>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<h1> Expected unused selectors </h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Selector</th>
+											<th>Unused</th>
+										</tr>
+									</thead>
+									<tbody>
+										{{#if test.unused}}
+										{{#each test.unused.actualUsedRules}}
+											<tr>
+												<td>
+													{{this}}
+												</td>
+												<td>
+													<i class="fa fa-close text-danger"></i>
+												</td>
+											</tr>
+										{{/each}}
+										{{#each test.unused.actualUnusedRules}}
+											<tr>
+												<td>
+													{{this}}
+												</td>
+												<td>
+													<i class="fa fa-check text-navy"></i>
+												</td>
+											</tr>
+										{{/each}}
+										{{else}}
+											<tr>
+												<td colspan="2">
+													None
+												</td>
+											</tr>
+										{{/if}}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<h1> Expected used selectors </h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Selector</th>
+											<th>Used</th>
+										</tr>
+									</thead>
+									<tbody>
+										{{#if test.used}}
+										{{#each test.used.actualUnusedRules}}
+											<tr>
+												<td>
+													{{this}}
+												</td>
+												<td>
+													<i class="fa fa-close text-danger"></i>
+												</td>
+											</tr>
+										{{/each}}
+										{{#each test.used.actualUsedRules}}
+											<tr>
+												<td>
+													{{this}}
+												</td>
+												<td>
+													<i class="fa fa-check text-navy"></i>
+												</td>
+											</tr>
+										{{/each}}
+										{{else}}
+											<tr>
+												<td colspan="2">
+													None
+												</td>
+											</tr>
+										{{/if}}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	{{> scripts}}
+{{> footer}}

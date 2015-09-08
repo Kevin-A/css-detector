@@ -1,0 +1,15 @@
+* {
+	font-weight: bold;
+}
+
+*.warning {
+	background-color: orange;
+}
+
+.danger {
+	background-color: red;
+}
+
+div * span {
+	text-decoration: underline;
+}

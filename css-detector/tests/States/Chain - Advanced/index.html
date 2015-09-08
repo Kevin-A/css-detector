@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OnClick DOM tests</title>
+</head>
+<body>
+
+<div id="links">
+	State 1 - <a href="javascript:myFunction(1);">State 1</a>, <a href="javascript:myFunction(2);">State 2</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+	function myFunction(a) {
+		switch (a) {
+			case 1: $("#links").html('State 1 - <a href="javascript:myFunction(1);">State 1</a>, <a href="javascript:myFunction(2);">State 2</a>'); break;
+			case 2: $("#links").html('State 2 - <a href="javascript:myFunction(1);">State 1</a>, <a href="javascript:myFunction(2);">State 2</a>, <a href="javascript:myFunction(3);">State 3</a>'); break;
+			case 3: $("#links").html('State 3 - <a href="javascript:myFunction(1);">State 1</a>, <a href="javascript:myFunction(2);">State 2</a>, <a href="javascript:myFunction(3);">State 3</a>, <a href="javascript:myFunction(4);">State 4</a>'); break;
+			case 4: $("#links").html('State 4 - <a href="javascript:myFunction(1);">State 1</a>, <a href="javascript:myFunction(2);">State 2</a>, <a href="javascript:myFunction(3);">State 3</a>, <a href="javascript:myFunction(4);">State 4</a>, <a href="javascript:myFunction(5);">State 5</a>'); break;
+			case 5: $("#links").html('State 5 - <a href="javascript:myFunction(1);">State 1</a>'); break;
+		}
+	}
+</script>
+
+</body>
+</html>

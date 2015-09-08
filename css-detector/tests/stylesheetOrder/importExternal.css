@@ -1,0 +1,6 @@
+#third::after,
+#fourth::after,
+#fifth::after,
+#sixth::after {
+	content: " (imported by external stylesheet)";
+}

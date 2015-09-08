@@ -1,0 +1,62 @@
+{{> head}}
+
+	<div class="wrapper wrapper-content">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-10">
+					<h1> Test suite </h1>
+				</div>
+				<div class="col-md-2">
+					{{#if running}}
+					<button class="btn btn-warning"> Tests are running </button>
+					{{else}}
+					<form action="/tests" method="POST">
+						<button type="submit" class="btn btn-primary">Run tests!</button>
+					</form>
+					{{/if}}
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-content">
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Test</th>
+											<th>Passed</th>
+										</tr>
+									</thead>
+									<tbody>
+										{{#each tests}}
+											<tr>
+												<!-- <td>
+													<a href="{{../websiteId}}/{{@key}}">{{@key}}</a>
+												</td> -->
+												<td>
+													<a href="/tests/{{this.name}}">{{this.name}}</a>
+												</td>
+												<td>
+													{{#if this.success}}
+													<i class="fa fa-check text-navy"></i>
+													{{else}}
+													<i class="fa fa-close text-danger"></i>
+													{{/if}}
+												</td>
+											</tr>
+										{{/each}}
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{{> scripts}}
+{{> footer}}

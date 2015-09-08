@@ -1,0 +1,27 @@
+
+span[italic] {
+	text-decoration: italic;
+}
+
+span[color="red"] {
+	color: red;
+}
+
+span[name~="bob"] {
+	color: red;
+}
+
+span[name^="jansmit"] {
+	font-style: italic;
+}
+
+span[name$="joseph"] {
+	border: 1px solid black;
+}
+
+span[word*="hydroncollider"] {
+	text-decoration: underline;
+}
+span[fruit|="papaya"] {
+	color: green;
+}

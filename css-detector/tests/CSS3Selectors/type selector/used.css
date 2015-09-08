@@ -1,0 +1,15 @@
+p {
+	font-weight: bold;
+}
+
+ul {
+	background-color: orange;
+}
+
+ul li {
+	background-color: red;
+}
+
+div p span {
+	text-decoration: underline;
+}

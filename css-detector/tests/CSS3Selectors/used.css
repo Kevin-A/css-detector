@@ -1,0 +1,319 @@
+
+/*********************************************/
+/*********** Elemental selectors *************/
+/*********************************************/
+
+/* 1. Universal selector */
+
+* {
+	font-weight: bold;
+}
+
+/* 2. Type selector */
+
+h1 {
+	color: orange;
+}
+
+/*********************************************/
+/*********** Attribute selectors *************/
+/*********************************************/
+
+/* Attribute presence and value selectors */
+span[underlined] {
+	text-decoration:underline;
+}
+span[color="purple"] {
+	color: purple;
+}
+span[name~="jan"] {
+	color: red;
+}
+span[fruit|="apple"] {
+	color: green;
+}
+
+/* substring matching attribute selectors */
+span[name^="jan"] {
+	font-style: italic;
+}
+span[name$="jackson"] {
+	border: 1px solid black;
+}
+span[word*="mine"] {
+	text-decoration: underline;
+}
+
+/*********************************************/
+/********** Logical combinations *************/
+/*********************************************/
+
+/* Negation pseudo-class */
+div#negation *:not(span) {
+	color: red;
+}
+
+/* Matches any pseudo-class */
+div#matches :matches(section, article, aside) h1 {
+    color: red;
+}
+div#matches :-moz-any(section, article, aside) h1 {
+    color: red;
+}
+div#matches :-webkit-any(section, article, aside) h1 {
+    color: red;
+}
+/* Relational pseudo-class */
+/*div#has header:has(h1) {
+	background: red;
+}*/
+
+/*********************************************/
+/****** Linguistic pseudo-classes ************/
+/*********************************************/
+
+/* language pseudo-class */
+p:lang(fr) {
+	background-color: DarkOrange;
+}
+
+/* directionality pseudo-class */
+div#directionality div:dir(ltr) { color: purple; }
+div#directionality div:dir(rtl) { color: blue; }
+
+/*********************************************/
+/******** Location pseudo-classes ************/
+/*********************************************/
+
+/* Any-link pseudo-class */
+div#any-link :any-link {
+	background: gray;
+}
+/* Link history pseudo-classes */
+
+/* Target pseudo-class */
+p:target {
+	font-size: 120%;
+	color: LightSeaGreen;
+}
+
+/* Reference element pseudo-class */
+/* See div#scope */
+
+/*********************************************/
+/***** User action pseudo-classes ************/
+/*********************************************/
+
+/* Pointer hover pseudo-class */
+a:hover {
+	color: fuchsia;
+}
+/* Activation pseudo-class */
+a:active {
+	color: green;
+}
+/* Input focus pseudo-class */
+input:focus {
+	border: 2px solid red;
+}
+/* Generalized input focus pseudo-class */
+
+/* Drag-and-drop pseudo-class */
+
+/*********************************************/
+/****** Time-dimensional pseudo-classes ******/
+/*********************************************/
+
+/* Current-element */
+
+/* Past-element */
+
+/* Future-element */
+
+
+/*********************************************/
+/*********** Input pseudo-classes ************/
+/*********************************************/
+
+input[type="text"] {
+	width: 250px;
+}
+
+/*********** Input control states ************/
+
+/* enabled/disabled */
+input:enabled {
+	border: 2px solid green;
+}
+input:disabled {
+	border: 2px solid Black;
+}
+
+/* placeholder-shown */
+:placeholder-shown {
+    color: green;
+}
+::-webkit-input-placeholder {
+    color: green;
+}
+::-moz-placeholder {
+    color: green;
+}
+:-ms-input-placeholder {
+    color: green;
+}
+
+/* Mutability */
+/* behaves odd */
+
+/* Default-option */
+div#default-option :default {
+    background-color: red;
+}
+
+/*********** Input value states ************/
+
+/* selected-option */
+input:checked + span {
+	background-color: green;
+}
+/* Indeterminate-value */
+/* must be set with javascript */
+
+/********* Input value checking ************/
+
+/* Range */
+div#range input {
+    border: 1px solid black;
+}
+div#range input:in-range {
+    background-color: rgba(0, 255, 0, 0.25);
+}
+div#range input:out-of-range {
+    background-color: rgba(255, 0, 0, 0.25);
+    border: 2px solid red;
+}
+div#range input:in-range + label::after {
+    content:' OK';
+}
+div#range input:out-of-range + label::after {
+    content:'out of range!';
+}
+
+/* Validity */
+div#validity input:invalid {
+  background-color: #ffdddd;
+}
+div#validity form:invalid {
+  border: 5px solid #ffdddd;
+}
+div#validity input:valid {
+  background-color: #ddffdd;
+}
+div#validity form:valid {
+  border: 5px solid #ddffdd;
+}
+/* Optionality */
+div#validity input:required {
+  border-color: #800000;
+  border-width: 3px;
+}
+div#validity input:optional {
+	border-color: orange;
+	border-width: 2px;
+}
+/* User-interaction */
+/* user-error */
+
+/*********************************************/
+/****** Tree structural pseudo-classes *******/
+/*********************************************/
+
+:root {
+	background-color: LightBlue;
+}
+div#empty div:empty {
+	width: 100px;
+	height: 20px;
+	background-color: red;
+}
+
+/********* Child-indexed ************/
+div#nthchild span:nth-child(odd),
+div#nthlastchild span:nth-last-child(odd),
+div#firstchild li:first-child,
+div#lastchild li:last-child,
+div#onlychild li:only-child {
+	color: red;
+}
+
+/********* Typed child-indexed ************/
+div#nthoftype span:nth-of-type(2),
+div#nthlastoftype span:nth-last-of-type(2),
+div#firstoftype span:first-of-type,
+div#lastoftype span:last-of-type,
+div#onlyoftype span:only-of-type {
+	color:red;
+}
+
+/*********************************************/
+/**************** Combinators ****************/
+/*********************************************/
+
+/* Descendant combinator */
+div#descendant > div span {
+	color: red;
+}
+/* Child combinator */
+div#child > div > span {
+	color: red;
+}
+/* next sibling combinator */
+div#adjacent > span + span {
+	color: red;
+}
+/* Following-sibling combinator */
+div#general > p ~ span {
+  color: red;
+}
+
+/*********************************************/
+/******* Grid-structural selectors ***********/
+/*********************************************/
+/*div#grid :column(.highlight) {
+    background-color: yellow;
+}
+div#grid :nth-column(2n+1) {
+    background-color: gray;
+}
+div#grid :nth-last-column(3n+1) {
+    background-color: green;
+}*/
+/*********************************************/
+/******** Pseudo-elements ********************/
+/*********************************************/
+
+/* ::first-line pseudo-element */
+div#firstline { max-width: 400px; }
+div#firstline p::first-line {
+	color: red;
+}
+/* ::first-letter pseudo-element */
+div#firstletter p::first-letter {
+	font-size: 30px;
+}
+/* ::before pseudo-element */
+div#beforeafter p::before {
+	content: "[BEFORE]";
+}
+/* ::after pseudo-element */
+div#beforeafter p::after {
+	content: "[AFTER]";
+}
+/* selection */
+div#selection::-moz-selection { color: gold;  background: red; }
+div#selection::selection      { color: gold;  background: red; }
+
+/* content */
+
+/* shadow */

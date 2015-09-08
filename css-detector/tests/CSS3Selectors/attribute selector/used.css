@@ -1,0 +1,27 @@
+
+span[underlined] {
+	text-decoration:underline;
+}
+
+span[color="purple"] {
+	color: purple;
+}
+
+span[name~="jan"] {
+	color: red;
+}
+
+span[name^="jan"] {
+	font-style: italic;
+}
+
+span[name$="jackson"] {
+	border: 1px solid black;
+}
+
+span[word*="mine"] {
+	text-decoration: underline;
+}
+span[fruit|="apple"] {
+	color: green;
+}

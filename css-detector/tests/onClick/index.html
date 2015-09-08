@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OnClick DOM tests</title>
+</head>
+<body>
+
+<a href="javascript:myFunction(1);">Click me</a>
+<a href="#" onclick="myFunction(2);">Click me</a>
+<a href="#" class="func">Click me</a>
+<a href="#" class="func2">Click me</a>
+
+<p id="demo"></p>
+
+<ul id="messages"></ul>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+	var elements = document.getElementsByClassName('func');
+	for (var i = elements.length - 1; i >= 0; i--) {
+		elements[i].onclick=function() { myFunction(3); };
+	};
+
+	var func4 = function () {
+		myFunction(4);
+	};
+
+	elements = document.getElementsByClassName('func2');
+	for (var i = elements.length - 1; i >= 0; i--) {
+		elements[i].addEventListener('click', func4);
+	};
+
+	function myFunction(a) {
+		$('#messages').append($('<li>').text('lol'));
+	    // document.getElementById("demo").innerHTML = "Hello World, " + a;
+	}
+</script>
+
+</body>
+</html>
