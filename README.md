@@ -2,6 +2,8 @@
 
 This project contains two parts: a crawler and a website acting as GUI. For a more thorough explanation please read my thesis and run the code yourself.
 
+I also created a test suite which one an run through the GUI.
+
 ## Immediate TODOs
 
 I have been unable to finish this as I would like. Some of the things I'd like to have done:
@@ -17,6 +19,7 @@ I have been unable to finish this as I would like. Some of the things I'd like t
 9. Detect sitemaps to detect more URLs
 10. Crawl up URL trees (`/activities/1/` to `/activities/`)
 11. Major code cleanup
+12. Direct feedback test suite (instead of having to mash F5)
 
 ## Notes
 
@@ -48,4 +51,23 @@ __Run using the terminal:__
 
 1. `casperjs index.js --url=<url here>` __Note: the website must be running, it is used for storage__
 
+## Images
 
+### Website / Crawler
+
+![Main page](/documentation/images/prototype/1_main_page.png)
+![Crawl screen](/documentation/images/prototype/2_crawl_screen.png)
+![Partial Results](/documentation/images/prototype/3_partial_results.png)
+![Crawling done](/documentation/images/prototype/4_crawl_done.png)
+![Results 1](/documentation/images/prototype/5_final_results_1.png)
+![Results 2](/documentation/images/prototype/5_final_results_2.png)
+![Per sheet view](/documentation/images/prototype/6_per_sheet_view.png)
+![Per selector view](/documentation/images/prototype/7_per_rule_view.png)
+
+### Test suite
+
+![Initial screen](/documentation/images/testsuite/1_initial_screen.png)
+![Testsuite started](/documentation/images/testsuite/2_started.png)
+![Results page](/documentation/images/testsuite/3_results_overview.png)
+![Failed test](/documentation/images/testsuite/4_failed_test.png)
+![Succeeded test](/documentation/images/testsuite/5_succeeded_test.png)
