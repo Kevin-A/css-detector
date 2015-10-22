@@ -23,7 +23,7 @@ I have been unable to finish this as I would like. Some of the things I'd like t
 
 ## Notes
 
-The project is built with large amount of time pressure and (in the beginning) lack of knowledge on CasperJS and PhantomJS.
+The project is built with large amount of time pressure and (in the beginning) lack of knowledge of CasperJS and PhantomJS.
 
 ## Running the project
 
@@ -36,8 +36,8 @@ CSS detector is built using CasperJS and PhantomJS. The website uses Node and a 
 3. Install io.js 3.x.x (https://iojs.org/)
 4. Go to `/css-detector/crawler` and `npm install`
 5. Go to `/css-detector/website` and `npm install`
-    1. You might need to install the sqlite3 module manually (https://github.com/nodejs/node-gyp#installation)
-    2. The sqlite3 version on NPM is not yet compatible with io.js 3.x.x. As soon as it is, change `dependencies.sqlite3` in `/css-detector/website/package.json` to `"sqlite3": "^3.0.x"`
+    1. You might need to install the sqlite3 module manually from the master branch: `npm install https://github.com/mapbox/node-sqlite3/tarball/master`
+    2. The sqlite3 version on NPM is not yet compatible with io.js 3.x.x. As soon as it is, set `dependencies.sqlite3` in `/css-detector/website/package.json` to `"sqlite3": "^3.0.x"`
 
 
 ### Running it

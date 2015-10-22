@@ -1,11 +1,13 @@
 var Hapi = require('hapi');
 var Routes = require('./routes');
+var fs = require('fs-extra');
 var Path = require('path');
 var Mediator = require('./casper/mediator');
 var Database = require('./database/database');
 var Config = require('./config');
-var memwatch = require('memwatch-next');
-memwatch.on('leak', function(info) { console.log(info); });
+
+// ensure the data directory exists
+fs.ensureDirSync(Config.dataFolder);
 
 // Create a server with a host and port
 var server = new Hapi.Server();
