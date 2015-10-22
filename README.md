@@ -1,6 +1,8 @@
 # CSS detector
 
-This project contains two parts: a crawler and a website acting as GUI. For a more thorough explanation please read my thesis and run the code yourself.
+This project can be used to dynamically crawl a website and detect used CSS selectors (or unused, though some things have to be improved first, see "Immediate TODOs" if you want to contribute). The results are neatly shown in the GUI for easy referral.
+
+It is split into two parts: a crawler and a website acting as GUI. For a more thorough explanation please read my thesis and/or run the code yourself.
 
 I also created a test suite which one an run through the GUI.
 
@@ -11,7 +13,7 @@ I have been unable to finish this as I would like. Some of the things I'd like t
 1. Fix the State Machine, which crawlers a web page by intercepting and firing events.
 2. Add a JS styler and fix some style issues.
 3. Find a solution for the Content-Security-Policy
-4. Probably remove CasperJS
+4. Probably remove CasperJS in favor of pure PhantomJS
 5. Multiple crawlers
 6. Use Google to retrieve a first set of seed URLs to increase coverage
 7. Add more vendor prefixes
@@ -20,6 +22,7 @@ I have been unable to finish this as I would like. Some of the things I'd like t
 10. Crawl up URL trees (`/activities/1/` to `/activities/`)
 11. Major code cleanup
 12. Direct feedback test suite (instead of having to mash F5)
+13. Offer ability to download the cleaned CSS files
 
 ## Notes
 
