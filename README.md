@@ -10,7 +10,7 @@ I also created a test suite which one an run through the GUI.
 
 I have been unable to finish this as I would like. Some of the things I'd like to have done:
 
-1. Fix the State Machine, which crawlers a web page by intercepting and firing events.
+1. Fix the State Machine, which crawls a web page by intercepting and firing events.
 2. Add a JS styler and fix some style issues.
 3. Find a solution for the Content-Security-Policy
 4. Probably remove CasperJS in favor of pure PhantomJS
